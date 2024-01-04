@@ -94,7 +94,7 @@ services:
       restart_policy:
         condition: on-failure
     command:
-      - nginx-entrypoint.sh
+      - bash /usr/local/bin/nginx-entrypoint.sh
     environment:
       BACKEND: backend:8000
       FRAPPE_SITE_NAME_HEADER: frontend

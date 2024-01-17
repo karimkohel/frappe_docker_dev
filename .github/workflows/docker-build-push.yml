@@ -1,4 +1,4 @@
-name: Build
+name: Build and push to Docker.io
 
 on:
   workflow_call:

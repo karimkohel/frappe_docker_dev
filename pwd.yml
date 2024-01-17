@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -11,7 +11,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   configurator:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: none
@@ -39,7 +39,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   create-site:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: none
@@ -89,7 +89,7 @@ services:
       - db-data:/var/lib/mysql
 
   frontend:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -111,7 +111,7 @@ services:
       - "8080:8080"
 
   queue-long:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -125,7 +125,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   queue-short:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -155,7 +155,7 @@ services:
       - redis-cache-data:/data
 
   scheduler:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -167,7 +167,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   websocket:
-    image: karimkohel/customfrappe:1.0.2
+    image: karimkohel/customfrappe:1.0.3
     deploy:
       restart_policy:
         condition: on-failure

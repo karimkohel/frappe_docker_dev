@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://github.com/kodeops-labs/dms.git",
+    "branch": "main"
+  },
+  {
+    "url": "https://github.com/frappe/helpdesk.git",
+    "branch": "version-14"
+  }
+]

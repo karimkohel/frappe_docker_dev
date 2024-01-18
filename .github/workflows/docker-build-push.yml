@@ -21,7 +21,7 @@ jobs:
       - name: Hash needed apps json file
         id: base64Var
         run: |
-          APPS_JSON=$(<app.json)
+          APPS_JSON=$(<apps.json)
           APPS_JSON_BASE64=$(echo ${APPS_JSON} | base64 -w 0)
           echo "APPS_JSON_BASE64=$APPS_JSON_BASE64" >> $GITHUB_OUTPUT
 

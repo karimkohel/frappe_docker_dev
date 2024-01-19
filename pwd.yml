@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: on-failure
@@ -11,7 +11,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   configurator:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: none
@@ -39,7 +39,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   create-site:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: none
@@ -67,7 +67,7 @@ services:
           fi
         done;
         echo "sites/common_site_config.json found";
-        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app dms --set-default frontend;
+        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app dms --set-default overflow.karimkohel.com;
 
   db:
     image: mariadb:10.6
@@ -89,7 +89,7 @@ services:
       - db-data:/var/lib/mysql
 
   frontend:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: on-failure
@@ -97,7 +97,7 @@ services:
       - nginx-entrypoint.sh
     environment:
       BACKEND: backend:8000
-      FRAPPE_SITE_NAME_HEADER: frontend
+      FRAPPE_SITE_NAME_HEADER: overflow.karimkohel.com
       SOCKETIO: websocket:9000
       UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
       UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
@@ -111,7 +111,7 @@ services:
       - "8080:8080"
 
   queue-long:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: on-failure
@@ -125,7 +125,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   queue-short:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: on-failure
@@ -155,7 +155,7 @@ services:
       - redis-cache-data:/data
 
   scheduler:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: on-failure
@@ -167,7 +167,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   websocket:
-    image: karimkohel/customfrappe:1.0.3
+    image: karimkohel/dmshd:1.1.0
     deploy:
       restart_policy:
         condition: on-failure
